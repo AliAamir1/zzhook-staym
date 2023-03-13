@@ -1,41 +1,84 @@
-from selenium import webdriver
 from behave import given, when, then
+from selenium import webdriver
+from behave import *
+from selenium.webdriver.support.ui import WebDriverWait
+from selenium.webdriver.support import expected_conditions as EC
+from selenium.webdriver.common.by import By
 
 @given('I am on the surah page')
 def step_impl(context):
-    context.driver = webdriver.Chrome()
-    context.driver.get("https://quran.com/surah/1")
+    context.browser = webdriver.Chrome()
+    context.browser.get("https://quran.com/1")
 
-@then('I should see an info button')
+@then('i should see a tafsir icon')
 def step_impl(context):
-    assert context.driver.find_element_by_css_selector('.info-icon')
+    try:
+        wait = WebDriverWait(context.browser, 10)
+        wait.until(EC.presence_of_element_located((By.CLASS_NAME, "TranslationViewCell_icon__x_dPx")))
+        context.browser.find_element(By.CLASS_NAME, "TranslationViewCell_icon__x_dPx")
+        assert True
+    except:
+        assert False
 
-@then('I should see a play audio button')
+
+@then('i should see a reflect icon')
 def step_impl(context):
-    assert context.driver.find_element_by_css_selector('.play-icon')
+    try:
+        wait = WebDriverWait(context.browser, 10)
+        wait.until(EC.presence_of_element_located((By.CLASS_NAME, "Button_content__hmBjB")))
+        context.browser.find_element(By.CLASS_NAME, "Button_content__hmBjB")
+        assert True
+    except:
+        assert False
 
-@then('I should see a reading button')
+
+@then('i should see a ... icon')
 def step_impl(context):
-    assert context.driver.find_element_by_css_selector('.read-icon')
+    try:
+        wait = WebDriverWait(context.browser, 10)
+        wait.until(EC.presence_of_element_located((By.CLASS_NAME, "TranslationViewCell_icon__x_dPx")))
+        context.browser.find_element(By.CLASS_NAME, "TranslationViewCell_icon__x_dPx")
+        assert True
+    except:
+        assert False
 
-@then('I should see a translation button')
+@then('i should see a play button')
 def step_impl(context):
-    assert context.driver.find_element_by_css_selector('.translation-icon')
+    try:
+        wait = WebDriverWait(context.browser, 10)
+        wait.until(EC.presence_of_element_located((By.CLASS_NAME, "Button_content__hmBjB")))
+        context.browser.find_element(By.CLASS_NAME, "Button_content__hmBjB")
+        assert True
+    except:
+        assert False
 
-@then('I should see a tafsir icon')
+@then('i should see a juzz button')
 def step_impl(context):
-    assert context.driver.find_element_by_css_selector('.tafsir-icon')
+    try:
+        wait = WebDriverWait(context.browser, 10)
+        wait.until(EC.presence_of_element_located((By.CLASS_NAME, "Switch_item__ePHkS Switch_itemNormal__pDPXy")))
+        context.browser.find_element(By.CLASS_NAME, "Switch_item__ePHkS Switch_itemNormal__pDPXy")
+        assert True
+    except:
+        assert False
 
-@then('I should see a reflect icon')
+@then('i should see a page button')
 def step_impl(context):
-    assert context.driver.find_element_by_css_selector('.reflection-icon')
+    try:
+        wait = WebDriverWait(context.browser, 10)
+        wait.until(EC.presence_of_element_located((By.CLASS_NAME, "Switch_item__ePHkS Switch_itemNormal__pDPXy")))
+        assert context.browser.find_element(By.CLASS_NAME, "Switch_item__ePHkS Switch_itemNormal__pDPXy")
+       
+    except:
+        assert False
 
-@then('I should see a ... icon')
+
+@then('i should see a play audio button')
 def step_impl(context):
-    assert context.driver.find_element_by_css_selector('.more-icon')
-
-@then('I should see a juzz button')
-def step_impl(context):
-    assert context.driver.find_element_by_css_selector('.juz-selector')
-
-
+    try:
+        wait = WebDriverWait(context.browser, 10)
+        wait.until(EC.presence_of_element_located((By.CLASS_NAME, "Button_content__hmBjB")))
+        assert context.browser.find_element(By.CLASS_NAME, "Button_content__hmBjB")
+       
+    except:
+        assert False

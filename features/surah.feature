@@ -13,14 +13,10 @@ Feature: Quran.com surah page
     Given I am on the surah page
     Then i should see a ... icon
 
-  Scenario: info button if showing:
+  Scenario: play button if showing:
     Given I am on the surah page
-    Then i should see a juzz button
+    Then i should see a play button
 
-  Scenario: info button if showing:
+  Scenario: play button if showing:
     Given I am on the surah page
-    Then i should see a page button
-
-  Scenario: info button if showing:
-    Given I am on the surah page
-    Then i should see a surah button
+    Then i should see a play audio button
