@@ -36,7 +36,7 @@ Feature: Testing quran.com
     And I click on the "Play" button
     Then a recitation of the chapter should begin playing.
 
-  Scenario: Change the Translation of the Quran
+  Scenario Outline: Scenario Outline name: Change the Translation of the Quran
     Given I am on Quran.com
     When I click on the translation dropdown
     And I select <reciter>
