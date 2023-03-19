@@ -33,30 +33,6 @@ def step_impl(context):
     except:
         assert False, "Tab Missing"
 
-
-@when('I click Juz')
-def step_impl(context):
-
-    xpath ="//div[normalize-space()='Juz']"
-    #div[contains(@class, "Tabs_tabItem__b_JVR") and contains(@class, "Tabs_tabItemSelected__Nt0wr") and text()="Juz"]'
-    wait = WebDriverWait(context.browser, 10)
-    wait.until(EC.presence_of_element_located(
-            (By.XPATH, xpath)))
-    tab_element = context.browser.find_element(By.XPATH, xpath)
-    tab_element.click()
-
-@then('I get Juz')
-def step_impl(context):
-    try:
-        wait = WebDriverWait(context.browser, 10)
-        wait = WebDriverWait(context.browser, 10)
-        wait.until(EC.presence_of_element_located(
-            (By.CLASS_NAME, "JuzView_juzTitle__mVq8J")))
-        context.browser.find_element(By.CLASS_NAME, "JuzView_juzTitle__mVq8J")
-
-        assert True, "Tab Present"
-    except:
-        assert False, "Tab Missing"
   
 @when('I switch to "{tab}"')  
 def step_impl(context, tab):
@@ -78,5 +54,35 @@ def step_impl(context, view):
 
 
 
+@then("The Logo is Present")
+def step_impl(context):
+    try:
+        wait = WebDriverWait(context.browser, 10)
+        #xpath = "//svg[@viewBox='0 0 513 294']"
+        logo = context.browser.find_element(By.CSS_SELECTOR, "svg[viewBox='0 0 513 294']")
     
+        assert True, "Logo Present"
+    except:
+        assert False, "Logo Missing"    
+
+@then("Search by Voice is Availabe")
+def step_impl(context):
+    try:
+        wait = WebDriverWait(context.browser, 10)
+        #xpath = "//svg[@viewBox='0 0 513 294']"
+        logo = context.browser.find_element(By.CSS_SELECTOR, "svg[width='24'][height='24']")
+    
+        assert True, "SV Present"
+    except:
+        assert False, "SV Missing" 
+
+@then("Radio Play is Availabe")
+def step_impl(context):
+    try:
+        wait = WebDriverWait(context.browser, 10)
+        logo = context.browser.find_element(By.CLASS_NAME, "Button_content__hmBjB")
+    
+        assert True, "Radio Present"
+    except:
+        assert False, "Radio Missing"         
 
