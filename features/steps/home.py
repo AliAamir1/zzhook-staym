@@ -36,6 +36,7 @@ def step_impl(context):
   
 @when('I switch to "{tab}"')  
 def step_impl(context, tab):
+    wait = WebDriverWait(context.browser, 10)
     xpath = f"//div[normalize-space()='{tab}']"
     wait = WebDriverWait(context.browser, 10)
     wait.until(EC.presence_of_element_located(
